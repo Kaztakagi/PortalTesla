@@ -1,0 +1,679 @@
+
+.back-button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: rgba(229, 9, 20, 0.9);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 12;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: none;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    <!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Tesla - Estilo Netflix</title>
+<style>
+:root {
+    --primary-color: #E50914;
+    --primary-hover: #f40612;
+    --background-dark: #141414;
+    --card-bg: #2a2a2a;
+    --card-hover: #3a3a3a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: #fff;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 4%;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+.hero {
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to top, var(--background-dark) 10%, transparent 90%), 
+                url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-S-Desktop-LHD-6.22.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 4% 80px;
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+    font-size: 56px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.5;
+}
+
+.hero-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+.hero-button:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+}
+
+.section-title {
+    font-size: 26px;
+    margin: 40px 0 20px 4%;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.row {
+    padding: 0 4%;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.app-row {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    gap: 15px;
+}
+
+.app-row::-webkit-scrollbar {
+    display: none;
+}
+
+.app-card {
+    min-width: 250px;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.app-card:hover {
+    transform: scale(1.08) translateY(-10px);
+    z-index: 2;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.app-poster {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(45deg, #333 0%, #444 100%);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-poster::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+}
+
+.app-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+.app-card:hover .app-bg-image {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.app-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.app-name {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.app-card:hover .app-poster {
+    background: linear-gradient(45deg, #444 0%, #555 100%);
+}
+
+.app-card:hover .app-icon {
+    transform: scale(1.2);
+}
+
+.back-button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: rgba(229, 9, 20, 0.9);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 12;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: none;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background-color: rgba(244, 6, 18, 1);
+    transform: scale(1.05);
+}
+
+.app-iframe {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 10;
+    background-color: #000;
+}
+
+.show-iframe {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.hide-iframe {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Loading indicator */
+.loading-app::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.loading-app::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(229, 9, 20, 0.3);
+    border-top: 4px solid rgba(229, 9, 20, 1);
+    border-radius: 50%;
+    z-index: 12;
+    animation: spin 1s linear infinite;
+}
+
+/* Featured apps style */
+.featured-app {
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.8) 0%, rgba(178, 7, 16, 0.8) 100%);
+}
+
+.featured-app .app-poster {
+    background: transparent;
+}
+
+.featured-app .app-poster::before {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.category-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.row:hover .scroll-arrow {
+    opacity: 1;
+}
+
+.scroll-left {
+    left: 2%;
+}
+
+.scroll-right {
+    right: 2%;
+}
+</style>
+</head>
+<body class="tesla-portal">
+<header>
+<div class="logo">T⚡+</div>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+    <h1 class="hero-title">Portal T⚡</h1>
+    <p class="hero-description">Acesse todas as suas aplicações favoritas diretamente no seu Tesla. Desfrute de entretenimento, navegação e comunicação enquanto estiver estacionado.</p>
+    <button class="hero-button" onclick="scrollToApps()">Explorar Apps</button>
+</div>
+</section>
+
+<h2 class="section-title">Serviços de Streaming</h2>
+<div class="row">
+<div class="scroll-arrow scroll-left" onclick="scrollRow(this.parentNode, -500)">◀</div>
+<div class="app-row">
+    <div class="app-card featured-app" onclick="openApp('https://www.youtube.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/y/57/youtube-icon.svg" alt="YouTube" class="app-bg-image">
+            <div class="app-icon">▶️</div>
+            <div class="app-name">YouTube</div>
+        </div>
+    </div>
+    
+    <div class="app-card featured-app" onclick="openApp('https://www.netflix.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/n/32/netflix.svg" alt="Netflix" class="app-bg-image">
+            <div class="app-icon">🎬</div>
+            <div class="app-name">Netflix</div>
+        </div>
+    </div>
+    
+    <div class="app-card featured-app" onclick="openApp('https://www.spotify.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/s/89/spotify.svg" alt="Spotify" class="app-bg-image">
+            <div class="app-icon">🎵</div>
+            <div class="app-name">Spotify</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.twitch.tv/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/t/25/twitch.svg" alt="Twitch" class="app-bg-image">
+            <div class="app-icon">🎮</div>
+            <div class="app-name">Twitch</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.disneyplus.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/d/31/disney-plus.svg" alt="Disney+" class="app-bg-image">
+            <div class="app-icon">✨</div>
+            <div class="app-name">Disney+</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.hbomax.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/h/27/hbo-max.svg" alt="HBO Max" class="app-bg-image">
+            <div class="app-icon">📺</div>
+            <div class="app-name">HBO Max</div>
+        </div>
+    </div>
+</div>
+<div class="scroll-arrow scroll-right" onclick="scrollRow(this.parentNode, 500)">▶</div>
+</div>-icon">▶️</div>
+            <div class="app-name">YouTube</div>
+        </div>
+    </div>
+    
+    <div class="app-card featured-app" onclick="openApp('https://www.netflix.com/')">
+        <div class="app-poster">
+            <div class="app-icon">🎬</div>
+            <div class="app-name">Netflix</div>
+        </div>
+    </div>
+    
+    <div class="app-card featured-app" onclick="openApp('https://www.spotify.com/')">
+        <div class="app-poster">
+            <div class="app-icon">🎵</div>
+            <div class="app-name">Spotify</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.twitch.tv/')">
+        <div class="app-poster">
+            <div class="app-icon">🎮</div>
+            <div class="app-name">Twitch</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.disneyplus.com/')">
+        <div class="app-poster">
+            <div class="app-icon">✨</div>
+            <div class="app-name">Disney+</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.hbomax.com/')">
+        <div class="app-poster">
+            <div class="app-icon">📺</div>
+            <div class="app-name">HBO Max</div>
+        </div>
+    </div>
+</div>
+<div class="scroll-arrow scroll-right" onclick="scrollRow(this.parentNode, 500)">▶</div>
+</div>
+
+<h2 class="section-title">Navegação</h2>
+<div class="row">
+<div class="scroll-arrow scroll-left" onclick="scrollRow(this.parentNode, -500)">◀</div>
+<div class="app-row">
+    <div class="app-card" onclick="openApp('https://www.google.com/maps')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/g/39/google-maps.svg" alt="Google Maps" class="app-bg-image">
+            <div class="app-icon">🗺️</div>
+            <div class="app-name">Google Maps</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.waze.com/live-map/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/w/14/waze.svg" alt="Waze" class="app-bg-image">
+            <div class="app-icon">🚗</div>
+            <div class="app-name">Waze</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.plugshare.com/')">
+        <div class="app-poster">
+            <img src="https://www.plugshare.com/assets/plugshare-ogimage-6c10c1737fcdef15f888a2d10b279c16d30f71e138aaf3dec0157fdc378c9b61.jpg" alt="PlugShare" class="app-bg-image">
+            <div class="app-icon">🔌</div>
+            <div class="app-name">PlugShare</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://abetterrouteplanner.com/')">
+        <div class="app-poster">
+            <img src="https://abetterrouteplanner.com/abrp_logo_1200.png" alt="ABRP" class="app-bg-image">
+            <div class="app-icon">⚡</div>
+            <div class="app-name">ABRP</div>
+        </div>
+    </div>
+</div>
+<div class="scroll-arrow scroll-right" onclick="scrollRow(this.parentNode, 500)">▶</div>
+</div>
+
+<h2 class="section-title">Comunicação</h2>
+<div class="row">
+<div class="scroll-arrow scroll-left" onclick="scrollRow(this.parentNode, -500)">◀</div>
+<div class="app-row">
+    <div class="app-card" onclick="openApp('https://web.whatsapp.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/w/28/whatsapp.svg" alt="WhatsApp" class="app-bg-image">
+            <div class="app-icon">💬</div>
+            <div class="app-name">WhatsApp</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://outlook.live.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/o/82/outlook.svg" alt="Outlook" class="app-bg-image">
+            <div class="app-icon">✉️</div>
+            <div class="app-name">Outlook</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.linkedin.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/l/66/linkedin-icon.svg" alt="LinkedIn" class="app-bg-image">
+            <div class="app-icon">💼</div>
+            <div class="app-name">LinkedIn</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.instagram.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/i/4/instagram.svg" alt="Instagram" class="app-bg-image">
+            <div class="app-icon">📷</div>
+            <div class="app-name">Instagram</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://mail.google.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/g/24/gmail-icon.svg" alt="Gmail" class="app-bg-image">
+            <div class="app-icon">📧</div>
+            <div class="app-name">Gmail</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://web.telegram.org/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/t/57/telegram.svg" alt="Telegram" class="app-bg-image">
+            <div class="app-icon">📱</div>
+            <div class="app-name">Telegram</div>
+        </div>
+    </div>
+</div>
+<div class="scroll-arrow scroll-right" onclick="scrollRow(this.parentNode, 500)">▶</div>
+</div>
+
+<h2 class="section-title">Compras & Lazer</h2>
+<div class="row">
+<div class="scroll-arrow scroll-left" onclick="scrollRow(this.parentNode, -500)">◀</div>
+<div class="app-row">
+    <div class="app-card" onclick="openApp('https://www.amazon.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/a/77/amazon.svg" alt="Amazon" class="app-bg-image">
+            <div class="app-icon">🛒</div>
+            <div class="app-name">Amazon</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.reddit.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/r/3/reddit.svg" alt="Reddit" class="app-bg-image">
+            <div class="app-icon">👽</div>
+            <div class="app-name">Reddit</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.ebay.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/e/46/ebay.svg" alt="eBay" class="app-bg-image">
+            <div class="app-icon">🏷️</div>
+            <div class="app-name">eBay</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://news.google.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/g/82/google-news.svg" alt="Google News" class="app-bg-image">
+            <div class="app-icon">📰</div>
+            <div class="app-name">Google News</div>
+        </div>
+    </div>
+    
+    <div class="app-card" onclick="openApp('https://www.booking.com/')">
+        <div class="app-poster">
+            <img src="https://cdn.cdnlogo.com/logos/b/89/booking.svg" alt="Booking" class="app-bg-image">
+            <div class="app-icon">🏨</div>
+            <div class="app-name">Booking</div>
+        </div>
+    </div>
+</div>
+<div class="scroll-arrow scroll-right" onclick="scrollRow(this.parentNode, 500)">▶</div>
+</div>
+
+<iframe id="appFrame" class="app-iframe"></iframe>
+<button class="back-button" onclick="goBack()" id="backButton">◀ Voltar</button>
+
+<script>
+function openApp(url) {
+    const iframe = document.getElementById('appFrame');
+    iframe.src = url;
+    iframe.classList.add('show-iframe');
+    document.getElementById('backButton').style.display = 'block';
+}
+
+function goBack() {
+    const iframe = document.getElementById('appFrame');
+    iframe.src = '';
+    iframe.classList.remove('show-iframe');
+    document.getElementById('backButton').style.display = 'none';
+}
+
+function scrollToApps() {
+    window.scrollTo({
+        top: window.innerHeight * 0.65,
+        behavior: 'smooth'
+    });
+}
+
+function scrollRow(rowParent, amount) {
+    const appRow = rowParent.querySelector('.app-row');
+    appRow.scrollBy({
+        left: amount,
+        behavior: 'smooth'
+    });
+}
+
+// Adicionar animação no início
+document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar classe para animar entrada dos elementos
+    setTimeout(() => {
+        document.querySelectorAll('.app-row').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateY(20px)';
+            row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            setTimeout(() => {
+                row.style.opacity = '1';
+                row.style.transform = 'translateY(0)';
+            }, 100 * (index + 1));
+        });
+    }, 500);
+});
+</script>
+</body>
+</html>
